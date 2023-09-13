@@ -1,10 +1,15 @@
 <h1>Sociopedia- Server</h1>
 
-Firstly, add the given environment variables in the `.env` file.
+Firstly, copy the `.env.example` file to `.env` by
+```
+cp .env .env.example
+```
 
+Add the given environment variables in the `.env` file.
 ```
 MONGO_URL=''
 JWT_SECRET=''
+PORT=
 ```
 
 Install the node modules:
