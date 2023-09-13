@@ -34,6 +34,7 @@ export const getUserFriends = async (req, res) => {
 export const addRemoveFriend = async (req, res) => {
     try {
         const { id, friendId } = req.params;
+        if( id===friendId ) return res.status(400).json({ message: "You can't add yourself as a friend" });
         const user = await User.findById(id);
         const friend = await User.findById(friendId);
         console.log("user.friends, friend.friends")
