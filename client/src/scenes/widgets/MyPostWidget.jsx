@@ -53,11 +53,11 @@ const MyPostWidget = ({ picturePath }) => {
         });
 
         const posts = await response.json();
-        dispatch(setPosts(posts));
+        dispatch(setPosts({ posts }));
         setImage(null);
         setPost("");
     };
-
+    
     return (
         <WidgetWrapper>
             <FlexBetween gap="1.5rem">
