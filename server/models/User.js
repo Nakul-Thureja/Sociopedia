@@ -33,8 +33,8 @@ const userSchema = mongoose.Schema({
             default: []
         },
         location: String,
-        ocupation: String,
-        viewedProfiles: Number,
+        occupation: String,
+        viewedProfile: Number,
         impressions: Number,
     }, 
     { timestamps: true }

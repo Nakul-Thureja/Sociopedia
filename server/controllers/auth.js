@@ -28,7 +28,7 @@ export const register = async (req, res) => {
             friends,
             location,
             occupation,
-            viedProfiles: Math.floor(Math.random() * 100),
+            viewedProfile: Math.floor(Math.random() * 100),
             impressions: Math.floor(Math.random() * 1000)
         });
         
@@ -39,6 +39,7 @@ export const register = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
 
 /* LOGIN USER */
 export const login = async (req, res) => {
