@@ -25,7 +25,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 
-const MyPostWidget = ({ picturePath }) => {
+const MyPostWidget = ({ picturePath, isProfile = false }) => {
     const dispatch = useDispatch();
     const [isImage, setIsImage] = useState(false);
     const [image, setImage] = useState(null);
@@ -41,22 +41,23 @@ const MyPostWidget = ({ picturePath }) => {
         const formData = new FormData();
         formData.append("userId", _id);
         formData.append("description", post);
+        formData.append('isProfile', JSON.stringify({isProfile: isProfile}));
+        console.log(isProfile);
         if (image){
             formData.append("picture", image);
             formData.append("picturePath", image.name);
         }
-
+        
         const response = await fetch("http://localhost:3001/posts", {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` },
             body: formData,
         });
-
         const posts = await response.json();
         dispatch(setPosts({ posts }));
         setImage(null);
         setPost("");
-    };
+    }  
     
     return (
         <WidgetWrapper>
